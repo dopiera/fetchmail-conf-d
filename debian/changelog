@@ -1,0 +1,5 @@
+fetchmail-conf-d (0.1) sierrepo; urgency=medium
+
+  * Initial release.
+
+ -- Marek Dopiera <marek@dopiera.pl>  Tue, 31 Oct 2017 21:53:20 +0000

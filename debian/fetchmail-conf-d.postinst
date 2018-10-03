@@ -1,0 +1,17 @@
+#!/bin/sh
+
+set -e
+
+if [ "$1" = configure ]; then
+	mkdir -p /etc/fetchmailrc.d/
+	chmod 600  /etc/fetchmailrc.d/
+
+	if [ -d /sys/fs/cgroup/systemd ] ; then
+		systemctl --system daemon-reload >/dev/null || true
+	fi
+fi
+
+
+#DEBHELPER#
+
+exit 0

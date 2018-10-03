@@ -1,0 +1,13 @@
+#! /bin/sh
+
+set -e
+
+if [ "$1" = remove ]; then
+	deb-systemd-invoke stop fetchmail@*
+	deb-systemd-invoke disable fetchmail@*
+fi
+
+#DEBHELPER#
+
+exit 0
+

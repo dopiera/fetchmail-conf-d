@@ -1,0 +1,13 @@
+#! /bin/sh
+
+set -e
+
+if [ "$1" = remove ]; then
+	if [ -d /sys/fs/cgroup/systemd ] ; then
+		systemctl --system daemon-reload >/dev/null || true
+	fi
+fi
+
+#DEBHELPER#
+
+exit 0

@@ -1,0 +1,25 @@
+#!/bin/bash
+
+set -e
+
+normal=${1?}
+early=${2?}
+late=${3?}
+
+log() {
+	echo "$@" > /dev/stderr
+}
+
+wantdir="$normal/multi-user.target.wants"
+mkdir -p "$wantdir"
+
+for config in /etc/fetchmailrc.d/*.config ; do
+	[ -f "$config" ] || continue
+	basename="$(basename "$config")"
+	conf_name="${basename%.config}"
+	ln -s "/lib/systemd/system/fetchmail@.service" "${wantdir}/fetchmail@${conf_name}.service"
+
+done
+  
+  
+  
